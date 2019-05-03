@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="scripts" th:remove="tag">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"  rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}">
+        <link href="https://datepicker/1.0.1/css/datepicker.css"  rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/1.8.0/dist/css/bootstrap-datepicker.css}">
+        <link href="https://bootstrap/1.8.0/bootstrap-table.css"  rel="stylesheet" th:href="@{/webjars/bootstrap-table/1.9.1/bootstrap-table.css}">
+        <link href="css/general.css" rel="stylesheet"  th:href="@{/css/general.css}">
+        <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+        <script
+                src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+                th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+        <script
+                src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+                th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
+
+        <script
+                src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+                th:src="@{/webjars/font-awesome/5.7.2/js/all.js}"></script>
+
+        <script
+                src="https://datepicker/1.0.1/js/datepicker.js"
+                th:src="@{/webjars/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js}"></script>
+        <script
+                src="https://datepicker/1.0.1/js/datepicker.js"
+                th:src="@{/webjars/momentjs/2.22.2/min/moment.min.js}"></script>
+        <script
+                src="https://bootstrap-table/1.9.1/bootstrap-table.js"
+                th:src="@{/webjars/bootstrap-table/1.9.1/bootstrap-table.js}"></script>
+        <script
+                src="https://bootstrap-table/1.9.1/bootstrap-table-locate-all.js"
+                th:src="@{/webjars/bootstrap-table/1.9.1/bootstrap-table-locale-all.js}"></script>
+        <script
+                src="/js/incapacidad.js"
+                th:src="@{/js/incapacidad.js}"></script>
+    </div>
+</body>
+</html>

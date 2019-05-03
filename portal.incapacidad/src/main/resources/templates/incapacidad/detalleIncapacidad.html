@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <script
+            src="/js/incapacidad.js"
+            th:src="@{/js/detalleIncapacidad.js}"></script>
+    <title>Title</title>
+</head>
+<body>
+<body layout:fragment="content" th:remove="tag">
+    <div class="container" style="margin-top: 19px;background-color: transparent;">
+        <div>
+            <div class="subsidio_titulo">
+                <div class="subsidio_titulo_container">
+                    <div class="subsidio_titulo_logo"><i class="fas fa-wheelchair"></i></div>
+                    <div class="subsidio_titulo_text">DETALLES DE INCAPACIDAD</div>
+                </div>
+                <div class="subrayado"></div>
+            </div>
+        </div>
+        <div>
+            <div style="flex-flow: row wrap;margin-top: 30px;display: flex;flex-direction: row;justify-content: flex-end;margin-bottom: 26px;">
+                <a class="boton-out-primary" th:href="@{/incapacidad/}"> Regresar Agregar Mas Solicitudes </a>
+                <a class="boton-primary" id="btn-enviar"> Enviar Solicitud </a>
+            </div>
+            <div style="background: white;border-radius: 10px;padding: 27px;font-size: 12px;margin-top: 23px;">
+                <table id="tableDetalleCitt" class="table table-hover"
+                       data-locale="es-ES"
+                       data-search="true"
+                       data-height="460"
+                       data-pagination="true"
+                       data-pagination-pre-text="Previous"
+                       data-pagination-next-text="Next"
+                       style="width:100%">
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="exitoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 381px;">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom:none;">
+                    <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                        <span><i class="fas fa-times"></i></span>
+                    </a>
+                </div>
+                <div class="modal-body"
+                     style="display: flex;flex-direction: column;text-align: start;padding: 9px 27px;">
+                    <div style="margin: auto;border-radius: 50%;border: 2px solid #ceceff;padding: 27px;">
+                        <img width="130px" th:src="@{/images/correcto.svg}">
+                    </div>
+                    <div style="color: #689afb;font-size: 17px;letter-spacing: 3px;font-style: italic;font-weight: 100;text-align: center;">
+                        Envio su Solicitud con éxito
+                    </div>
+                    <div style="color: #525252;font-size: 14px;letter-spacing: 3px;font-style: italic;font-weight: 100;text-align: center;">
+                        Felicidades
+                    </div>
+                    <div style="margin-top: 15px;text-align: center;color: #909090;font-style: italic;font-size: 13px;letter-spacing: 1px;">
+                        ¿Desee ver el estado de solicitud?
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:0px;padding-top: 0px">
+                    <div style="margin-top: 0px;margin-bottom: 18px;text-align: center;margin: auto;margin: auto;display: flex;flex-direction: column;">
+                        <a class="boton-primary"  style="width: 100%;margin-right: 0px;" th:href="@{/incapacidad/detalleSolicitudes}">SI</a>
+                        <a class="boton-primary"  style="width: 100%;margin-right: 0px;margin-top: 10px;" th:href="@{/incapacidad/}">NO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mensajesSolicitud" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 240px;">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom:none;">
+                    <div class="text-error" style="margin-top: 15px;text-align: center;color: #909090;font-style: italic;font-size: 13px;letter-spacing: 1px;">
+                    </div>
+                    <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                        <span><i class="fas fa-times"></i></span>
+                    </a>
+                </div>
+                <div class="modal-footer" style="border-top:0px;padding-top: 0px">
+                    <div style="margin-top: 0px;margin-bottom: 18px;text-align: center;margin: auto;">
+                        <a class="boton-primary"  style="width: 121px;" data-dismiss="modal" aria-label="Close">Aceptar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+</html>

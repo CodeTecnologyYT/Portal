@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <script
+            src="/js/incapacidad.js"
+            th:src="@{/js/incapacidadSolicitado.js}"></script>
+    <title>Title</title>
+</head>
+<body>
+<body layout:fragment="content" th:remove="tag">
+<div class="container" style="margin-top: 19px;background-color: transparent;">
+    <div>
+        <div class="subsidio_titulo">
+            <div class="subsidio_titulo_container">
+                <div class="subsidio_titulo_logo"><i class="fas fa-wheelchair"></i></div>
+                <div class="subsidio_titulo_text">DETALLES DE INCAPACIDAD</div>
+            </div>
+            <div class="subrayado"></div>
+        </div>
+    </div>
+    <div>
+        <div style="flex-flow: row wrap;margin-top: 30px;display: flex;flex-direction: row;justify-content: flex-end;margin-bottom: 26px;">
+            <a class="boton-out-primary" th:href="@{/incapacidad/}"> Regresar Agregar Mas Solicitudes </a>
+        </div>
+        <div style="background: white;border-radius: 10px;padding: 27px;font-size: 12px;margin-top: 23px;">
+            <table id="tableDetalleSolicitud" class="table table-hover"
+                   data-locale="es-ES"
+                   data-search="true"
+                   data-height="460"
+                   data-pagination="true"
+                   data-pagination-pre-text="Previous"
+                   data-pagination-next-text="Next"
+                   style="width:100%">
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body layout:fragment="content" th:remove="tag">
+<div class="content" style="padding-left: 50px;padding-right: 310px;margin-top: 19px;background-color: transparent;">
+    <div>
+        <div class="subsidio_titulo">
+            <div class="subsidio_titulo_container">
+                <div class="subsidio_titulo_logo"><i class="fas fa-wheelchair"></i></div>
+                <div class="subsidio_titulo_text">INCAPACIDAD</div>
+            </div>
+            <div class="subrayado"></div>
+        </div>
+        <form class="formulario" enctype="multipart/form-data">
+            <div class="container_datos">
+                <div class="subtitle">
+                    <span>Datos Asegurado</span>
+                    <div class="subrayado"></div>
+                </div>
+                <div class="aligearCamposRow" style="padding: 10px 0px;justify-content: start;">
+                    <div style="padding-right: 24px;">
+                        <label th:for="asegurado.tipoDocumento">Tipo Documento Asegurado</label>
+                        <select class="form-control" id="asegurado_tipoDocumento" name="asegurado.tipodocumento">
+                            <option value="01"> 01-DNI</option>
+                        </select>
+                    </div>
+                    <div class="inputNumeroDocumento" style="position: relative">
+                        <label th:for="asegurado.numeroDocumento">Numero Documento Asegurado</label>
+                        <div>
+                            <div class="icon_error"><i class="fas fa-exclamation-circle"></i></div>
+                            <input class="form-control" type="text" id="asegurado_numeroDocumento"
+                                   th:name="asegurado.numeroDocumento" maxlength="8">
+                        </div>
+                        <div id="error_numeroDocumento" class="error_message">
+                            No Ingrese el numero de Documento
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex;justify-content: flex-start;align-items: center;">
+                    <div style="width:100%">
+                        <div class="asegurado_nombre">Nombres y  Apellidos del Asegurado</div>
+                        <div class="lds-ring" style="display: none;">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_datos" style="position: relative;">
+                <div class="subtitle">
+                    <span>Citt</span>
+                    <div class="subrayado"></div>
+                </div>
+                <div>
+                    <a id="mostrarCittDisponiblesModal" class="boton-out-primary"><i class="fas fa-plus"></i> Mostrar
+                        CIIT Disponibles</a>
+                    <div id="mensaje20Dias" style="position: absolute;top: 23px;right: 38px;color: #337ab7;">
+
+                    </div>
+                    <div id="error_cittDisponibles" class="error_message">
+
+                    </div>
+                    <div class="subcontainer">
+                        <div>
+                            <div class="subsubtitle">Solicitados</div>
+                            <div class="section_content section_citt_solicitados">
+                                <div class="item_no_cargado">
+                                    No tiene CITT Solicitados cargados aun...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_datos" style="position: relative">
+                <div style="position: absolute;top: 14px;right: 33px;color: #6993cc;">Cantidad Dias Solicitados <b><span
+                        class="diasSolicitados">0</span></b></div>
+                <div class="subtitle">
+                    <span>Periodo Solicitud</span>
+                    <div class="subrayado"></div>
+                </div>
+                <div class="aligearCamposRow section_periodo">
+                    <div class="item_no_cargado" style="padding: 18px;width: 100%;">
+                        No tiene periodo Seleccionado
+                    </div>
+                </div>
+            </div>
+            <div class="container_datos">
+                <div class="subtitle">
+                    <span>Informacion Adicional</span>
+                    <div class="subrayado"></div>
+                </div>
+                <div class="aligearCamposCol">
+                    <div class="contenedor_sections">
+                        <div>
+                            <div class="contenedor_inputs">
+                                <div class="label" style="width:200px"><i>El docente de Sector Privado ?</i></div>
+                                <div class="radio radius"><i>Si</i>
+                                    <input type="radio" name="esDocente" value="1">
+                                    <span class="checkround esDocente"></span>
+                                </div>
+                                <div class="radio radius"><i>No</i>
+                                    <input type="radio" checked="checked" name="esDocente" value="0">
+                                    <span class="checkround esDocente"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contenedor_sections" id="sectionDocente" style="display:none">
+                            <div class="contenedor_inputs">
+                                <div style="width:200px" class="label">Periodo Vacacional Desde</div>
+                                <div class='input-group date label' id='fechaInicioVacaciones'>
+                                    <input type='text' class="form-control"/>
+                                    <span class="input-group-addon input-group-addon-datepicker">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                                </div>
+                                <div class="label">Hasta</div>
+                                <div class='input-group date label' id='fechaFinVacaciones'>
+                                    <input type='text' class="form-control"/>
+                                    <span class="input-group-addon input-group-addon-datepicker">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                                </div>
+                            </div>
+                            <div id="error_fechaVacacional" class="error_message">
+                                Ingrese Fecha Vacacional
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="contenedor_inputs">
+                                    <div style="width:200px" class="label"><i>Actualmente esta Trabajando?</i></div>
+                                    <div class="radio radius"><i>Si</i>
+                                        <input type="radio"  checked="checked" name="estaTrabajando" value="0">
+                                        <span class="checkround estaTrabajando"></span>
+                                    </div>
+                                    <div class="radio radius"><i>No</i>
+                                        <input type="radio"  name="estaTrabajando" value="1">
+                                        <span class="checkround estaTrabajando"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contenedor_sections" id="sectionCesado" style="display:none">
+                            <div class="contenedor_inputs">
+                                <div class="label">Fecha de Cese Laboral</div>
+                                <div class='input-group date' id='fechaCese'>
+                                    <input type='text' class="form-control"/>
+                                    <span class="input-group-addon input-group-addon-datepicker">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                                </div>
+                            </div>
+                            <div id="error_fechaCese" class="error_message">
+                                Ingrese Fecha Cese Laboral
+                            </div>
+                        </div>
+                        <div class="contenedor_inputs">
+                            <div class="contenedor_inputs label">
+                                <div class="label">Monto Solicitado</div>
+                                <div class="input-group" style="background: none;color: #959595;">
+                                    <span class="input-group-addon">S./</span>
+                                    <input class="form-control" id="montoSolicitado" type="text">
+                                </div>
+                            </div>
+                            <div id="error_montoSolicitado" class="error_message">
+                                Ingrese Monto Solicitado
+                            </div>
+                            <div>
+                                <div>
+                                    <a id="btn-sustento1" class="boton-primary"> Adjuntar Sustento </a>
+                                    <input type="file" id="sustentosfile1" name="sustentosfile" accept="application/pdf" multiple/>
+                                </div>
+                                <div id="error_documentoSustento1" class="error_message">
+                                    Ingrese el Documento de Sustento
+                                </div>
+                            </div>
+                            <div class="secction_files1"> </div>
+                         </div>
+                         <div class="contenedor_inputs">
+                            <div id="inputSCTR">
+                                <div class="contenedor_inputs">
+                                    <div class="label">¿Asegurado cuenta con SCTR?</div>
+                                    <div class="radio radius">Si
+                                        <input type="radio" name="tieneSCTR" value="1">
+                                        <span class="checkround tieneSCTR"></span>
+                                    </div>
+                                    <div class="radio radius">No
+                                        <input type="radio" checked="checked" name="tieneSCTR" value="0">
+                                        <span class="checkround tieneSCTR"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aligearBotones">
+                <a class="boton-primary" id="btn-revisar">Agregar Asegurado </a>
+                <a class="boton-out-primary" id="btn_limpiar"
+                   style="font-size: 14px;letter-spacing: 3px;margin-left: 0;"> Limpiar </a>
+            </div>
+        </form>
+    </div>
+    <div class="content-fixed">
+        <div class="title">
+            Solicitud
+        </div>
+        <div class="subtitle">
+            Cantidad <span class="cantidadAsegurados">0</span>
+        </div>
+        <div class="content-list">
+            <div style="color: #737373;text-align: center;">
+                No tiene ni una solicitud aun registrada
+            </div>
+        </div>
+        <div style="text-align: center;margin-top: 15px;"><a class="boton-out-primary"
+             style="font-size: 12px;letter-spacing: 4px;margin-right: 0;"
+             id="btn_" th:href="@{/incapacidad/detalleIncapacidad}"> Ver Detalle </a></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="CittDisponiblesSoliModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <h5 class="modal-title modal_titulo" id="exampleModalLabel">Lista de Citt Disponibles</h5>
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <div class="section_citt_content">
+
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top:0px;">
+                <div style="margin-top: 0px;margin-bottom: 18px;" class="aligearBotones">
+                    <a class="boton-primary guardar-citt"> Guardar Cambios </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Citt20DiasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <div class="modal-title modal_titulo" id="Citt20DiasModalLabel">Lista de Citt Disponibles</div>
+                <div><span>Cantidad de dias Completados </span><span class="cantidad20Dias"></span><span
+                        style="font-style: italic;"> (Debes de llegar a los 20 Dias)</span></div>
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <div class="section_citt20Dias_content">
+
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top:0px;">
+                <div style="margin-top: 0px;margin-bottom: 18px;" class="aligearBotones">
+                    <a class="boton-primary guardar-citt-20Dias"> Guardar Cambios </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exitoAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 299px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-body" style="display: flex;flex-direction: column;">
+                <div style="text-align: center;color: #4886fe;font-style: italic;margin-bottom: 24px;font-size: 16px;">
+                    Agrego con exito en la solicitud
+                </div>
+                <div style="color: #9c9c9c;text-align: center;">
+                    Desea seguir agregando
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top:0px;padding-top: 0px">
+                <div style="margin-top: 0px;margin-bottom: 18px;margin: auto;">
+                    <a class="boton-primary" data-dismiss="modal" aria-label="Close" style="width: 120px;">SI</a>
+                    <a class="boton-out-primary" style="margin-right:0px;width: 120px;" th:href="@{detalleIncapacidad}">NO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mensajesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 299px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-body" style="display: flex;flex-direction: column;">
+                <div style="color: #929292;text-align: center;font-weight: 500;font-style: italic;">
+                    USTED NO CUENTA CON CITT DISPONIBLES
+                </div>
+                <div style="text-align: center;color: #b7b7b7;">
+                    para poder solicitar
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top:0px;padding-top: 0px">
+                <div style="margin-top: 0px;margin-bottom: 18px;text-align: center;">
+                    <a class="boton-primary" style="width: 139px;font-size: 13px;margin-right:0px" data-dismiss="modal"
+                       aria-label="Close">ACEPTAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="advertenciaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 560px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-body"
+                 style="display: flex;flex-direction: column;text-align: start;padding: 9px 27px;">
+                <div style="color: #689afb;font-size: 17px;letter-spacing: 3px;font-style: italic;font-weight: 100;">
+                   Se encontró que cuenta con veinte primeros días en el periodo Solicitado
+                </div>
+                <div style="margin-top: 12px;color: grey;">Los citt tomados para los 20 primerso dias</div>
+                <div class="group-items" style="overflow-y: scroll;height: 300px;">
+
+                </div>
+                <div style="margin-top: 15px;text-align: center;color: #909090;font-style: italic;font-size: 13px;letter-spacing: 1px;">
+                    Si esta de acuerdo con utilizar los CITT indicados que cubren sus
+                    20 primeros dias , haga clic en "Aceptar", de poseer otros CITT que
+                    no estén en la lista hacer clic en "Cancelar" y acercarse a la Ospe
+                    mas cercana a realizar sus solicitud.
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top:0px;padding-top: 0px">
+                <div style="margin-top: 0px;margin-bottom: 18px;text-align: center;margin: auto;">
+                    <a class="boton-primary" id="aceptar20Dias" data-dismiss="modal" aria-label="Close">Aceptar</a>
+                    <a class="boton-out-primary" id="noaceptar20Dias" style="margin-right: 11px;margin-top: 10px;"
+                       data-dismiss="modal" aria-label="Close">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="20DiasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 560px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-body"
+                 style="    display: flex;flex-direction: column;text-align: start;padding: 0px 20px 27px 20px;">
+                <div style="color: #689afb;font-size: 17px;letter-spacing: 3px;font-style: italic;font-weight: 100;">
+                    20 Primeros Dias
+                </div>
+                <div style="margin-top: 12px;color: grey;">Los citts tomados son los siguisntes</div>
+                <div class="group-items"  style="overflow-y: scroll;height: 300px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Falta20DiasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 560px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-body"
+                 style="display: flex;flex-direction: column;text-align: start;padding: 9px 27px;">
+                <div style="color: #689afb;font-size: 17px;letter-spacing: 3px;font-style: italic;font-weight: 100;">
+                    No se encontro citt suficientes que cubran los 20 primeros dias
+                </div>
+                <div class="group-items"  style="overflow-y: scroll;height: 300px;">
+
+                </div>
+                <div style="margin-top: 15px;text-align: center;color: #909090;font-style: italic;font-size: 13px;letter-spacing: 1px;">
+                    No se ha encontrado CITT que cubra los veinte primeros dias, agradeceremos acercarse a la
+                    OSPE mas cercana a realizar su solicitud.
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top:0px;padding-top: 0px">
+                <div style="margin-top: 0px;margin-bottom: 18px;text-align: center;margin: auto;">
+                    <a class="boton-primary"  data-dismiss="modal" aria-label="Close">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mensajesSolicitud" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 240px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:none;">
+                <div class="text-error" style="margin-top: 15px;text-align: center;color: #909090;font-style: italic;font-size: 13px;letter-spacing: 1px;">
+                </div>
+                <a class="modal_close" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+            </div>
+            <div class="modal-footer" style="border-top:0px;padding-top: 0px">
+                <div style="margin-top: 0px;margin-bottom: 18px;text-align: center;margin: auto;">
+                    <a class="boton-primary"  style="width: 121px;" data-dismiss="modal" aria-label="Close">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

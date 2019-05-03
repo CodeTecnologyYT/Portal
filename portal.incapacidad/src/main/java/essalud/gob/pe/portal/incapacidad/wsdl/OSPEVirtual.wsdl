@@ -1,0 +1,719 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://controller.ospe.essalud.gob.pe/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="OSPEVirtual" targetNamespace="http://controller.ospe.essalud.gob.pe/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://controller.ospe.essalud.gob.pe/" elementFormDefault="unqualified" targetNamespace="http://controller.ospe.essalud.gob.pe/" version="1.0">
+
+  <xs:element name="GetCITT" type="tns:GetCITT"/>
+
+  <xs:element name="GetCITTResponse" type="tns:GetCITTResponse"/>
+
+  <xs:element name="GetFamilyBond" type="tns:GetFamilyBond"/>
+
+  <xs:element name="GetFamilyBondResponse" type="tns:GetFamilyBondResponse"/>
+
+  <xs:element name="GetInsuredData" type="tns:GetInsuredData"/>
+
+  <xs:element name="GetInsuredDataResponse" type="tns:GetInsuredDataResponse"/>
+
+  <xs:element name="GetTaxpayer" type="tns:GetTaxpayer"/>
+
+  <xs:element name="GetTaxpayerResponse" type="tns:GetTaxpayerResponse"/>
+
+  <xs:element name="ReportInability" type="tns:ReportInability"/>
+
+  <xs:element name="ReportInabilityResponse" type="tns:ReportInabilityResponse"/>
+
+  <xs:element name="get20Days" type="tns:get20Days"/>
+
+  <xs:element name="get20DaysResponse" type="tns:get20DaysResponse"/>
+
+  <xs:element name="getEmploymentRelationship" type="tns:getEmploymentRelationship"/>
+
+  <xs:element name="getEmploymentRelationshipResponse" type="tns:getEmploymentRelationshipResponse"/>
+
+  <xs:element name="getReactivationEmployer" type="tns:getReactivationEmployer"/>
+
+  <xs:element name="getReactivationEmployerResponse" type="tns:getReactivationEmployerResponse"/>
+
+  <xs:element name="getReactivationInsured" type="tns:getReactivationInsured"/>
+
+  <xs:element name="getReactivationInsuredResponse" type="tns:getReactivationInsuredResponse"/>
+
+  <xs:element name="insertarLactancia" type="tns:insertarLactancia"/>
+
+  <xs:element name="insertarLactanciaResponse" type="tns:insertarLactanciaResponse"/>
+
+  <xs:element name="reportLactancia" type="tns:reportLactancia"/>
+
+  <xs:element name="reportLactanciaResponse" type="tns:reportLactanciaResponse"/>
+
+  <xs:element name="sendBackOfficeInability" type="tns:sendBackOfficeInability"/>
+
+  <xs:element name="sendBackOfficeInabilityResponse" type="tns:sendBackOfficeInabilityResponse"/>
+
+  <xs:element name="sendInability" type="tns:sendInability"/>
+
+  <xs:element name="sendInabilityResponse" type="tns:sendInabilityResponse"/>
+
+  <xs:element name="sendReactivation" type="tns:sendReactivation"/>
+
+  <xs:element name="sendReactivationResponse" type="tns:sendReactivationResponse"/>
+
+  <xs:element name="sendReimbursementPayment" type="tns:sendReimbursementPayment"/>
+
+  <xs:element name="sendReimbursementPaymentResponse" type="tns:sendReimbursementPaymentResponse"/>
+
+  <xs:element name="updateStatusInability" type="tns:updateStatusInability"/>
+
+  <xs:element name="updateStatusInabilityResponse" type="tns:updateStatusInabilityResponse"/>
+
+  <xs:complexType name="GetFamilyBond">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecinicio" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecfin" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetFamilyBondResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendReactivation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nroExpediente" type="xs:string"/>
+      <xs:element minOccurs="0" name="codUsuario" type="xs:string"/>
+      <xs:element minOccurs="0" name="terUsuario" type="xs:string"/>
+      <xs:element minOccurs="0" name="ipUsuario" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendReactivationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCITT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="tpSubsidio" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCITTResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getEmploymentRelationship">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getEmploymentRelationshipResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetTaxpayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nrruc" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetTaxpayerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ReportInability">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="tpcitt" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ReportInabilityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendBackOfficeInability">
+    <xs:sequence>
+      <xs:element name="ideSolicitud" type="xs:int"/>
+      <xs:element minOccurs="0" name="tpDocTitularSia" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrDocBeneficiario" type="xs:string"/>
+      <xs:element minOccurs="0" name="codUsuario" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendBackOfficeInabilityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="get20Days">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="tpSubsidio" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecIniSol" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecFinSol" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="get20DaysResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reportLactancia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codSolicitud" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reportLactanciaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendInability">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="json" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendInabilityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetInsuredData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetInsuredDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReactivationInsured">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReactivationInsuredResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateStatusInability">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codSolicitud" type="xs:string"/>
+      <xs:element minOccurs="0" name="opcion" type="xs:string"/>
+      <xs:element minOccurs="0" name="tpdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrdoc" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateStatusInabilityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insertarLactancia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lactancia" type="tns:subLactanciaBean"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="subLactanciaBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codCUI" type="xs:string"/>
+      <xs:element minOccurs="0" name="codEDocBeneficiario" type="xs:string"/>
+      <xs:element minOccurs="0" name="codEDocHijo" type="xs:string"/>
+      <xs:element minOccurs="0" name="codEDocUsuario" type="xs:string"/>
+      <xs:element minOccurs="0" name="codETipoParto" type="xs:string"/>
+      <xs:element minOccurs="0" name="codTDocBeneficiario" type="xs:int"/>
+      <xs:element minOccurs="0" name="codTDocHijo" type="xs:int"/>
+      <xs:element minOccurs="0" name="numDocBeneficiario" type="xs:string"/>
+      <xs:element minOccurs="0" name="numDocHijo" type="xs:string"/>
+      <xs:element minOccurs="0" name="numDocUsuario" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insertarLactanciaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReactivationEmployer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nrruc" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReactivationEmployerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendReimbursementPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tpDocTitular" type="xs:string"/>
+      <xs:element minOccurs="0" name="nrDocTitular" type="xs:string"/>
+      <xs:element minOccurs="0" name="rucEmpleador" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecIniSubs" type="xs:string"/>
+      <xs:element minOccurs="0" name="fecFinSubs" type="xs:string"/>
+      <xs:element minOccurs="0" name="tpPago" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="pass" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendReimbursementPaymentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetFamilyBond">
+    <wsdl:part element="tns:GetFamilyBond" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendReactivation">
+    <wsdl:part element="tns:sendReactivation" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCITT">
+    <wsdl:part element="tns:GetCITT" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendBackOfficeInabilityResponse">
+    <wsdl:part element="tns:sendBackOfficeInabilityResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentRelationshipResponse">
+    <wsdl:part element="tns:getEmploymentRelationshipResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendBackOfficeInability">
+    <wsdl:part element="tns:sendBackOfficeInability" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reportLactancia">
+    <wsdl:part element="tns:reportLactancia" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendInability">
+    <wsdl:part element="tns:sendInability" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetTaxpayerResponse">
+    <wsdl:part element="tns:GetTaxpayerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetInsuredData">
+    <wsdl:part element="tns:GetInsuredData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get20DaysResponse">
+    <wsdl:part element="tns:get20DaysResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetInsuredDataResponse">
+    <wsdl:part element="tns:GetInsuredDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactivationInsured">
+    <wsdl:part element="tns:getReactivationInsured" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertarLactancia">
+    <wsdl:part element="tns:insertarLactancia" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCITTResponse">
+    <wsdl:part element="tns:GetCITTResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendReimbursementPayment">
+    <wsdl:part element="tns:sendReimbursementPayment" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertarLactanciaResponse">
+    <wsdl:part element="tns:insertarLactanciaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentRelationship">
+    <wsdl:part element="tns:getEmploymentRelationship" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetTaxpayer">
+    <wsdl:part element="tns:GetTaxpayer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReportInability">
+    <wsdl:part element="tns:ReportInability" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendInabilityResponse">
+    <wsdl:part element="tns:sendInabilityResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactivationEmployerResponse">
+    <wsdl:part element="tns:getReactivationEmployerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendReactivationResponse">
+    <wsdl:part element="tns:sendReactivationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateStatusInabilityResponse">
+    <wsdl:part element="tns:updateStatusInabilityResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get20Days">
+    <wsdl:part element="tns:get20Days" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReportInabilityResponse">
+    <wsdl:part element="tns:ReportInabilityResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetFamilyBondResponse">
+    <wsdl:part element="tns:GetFamilyBondResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateStatusInability">
+    <wsdl:part element="tns:updateStatusInability" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reportLactanciaResponse">
+    <wsdl:part element="tns:reportLactanciaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactivationEmployer">
+    <wsdl:part element="tns:getReactivationEmployer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactivationInsuredResponse">
+    <wsdl:part element="tns:getReactivationInsuredResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendReimbursementPaymentResponse">
+    <wsdl:part element="tns:sendReimbursementPaymentResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="OSPEVirtual">
+    <wsdl:operation name="GetFamilyBond">
+      <wsdl:input message="tns:GetFamilyBond" name="GetFamilyBond">
+    </wsdl:input>
+      <wsdl:output message="tns:GetFamilyBondResponse" name="GetFamilyBondResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendReactivation">
+      <wsdl:input message="tns:sendReactivation" name="sendReactivation">
+    </wsdl:input>
+      <wsdl:output message="tns:sendReactivationResponse" name="sendReactivationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCITT">
+      <wsdl:input message="tns:GetCITT" name="GetCITT">
+    </wsdl:input>
+      <wsdl:output message="tns:GetCITTResponse" name="GetCITTResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentRelationship">
+      <wsdl:input message="tns:getEmploymentRelationship" name="getEmploymentRelationship">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmploymentRelationshipResponse" name="getEmploymentRelationshipResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxpayer">
+      <wsdl:input message="tns:GetTaxpayer" name="GetTaxpayer">
+    </wsdl:input>
+      <wsdl:output message="tns:GetTaxpayerResponse" name="GetTaxpayerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportInability">
+      <wsdl:input message="tns:ReportInability" name="ReportInability">
+    </wsdl:input>
+      <wsdl:output message="tns:ReportInabilityResponse" name="ReportInabilityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendBackOfficeInability">
+      <wsdl:input message="tns:sendBackOfficeInability" name="sendBackOfficeInability">
+    </wsdl:input>
+      <wsdl:output message="tns:sendBackOfficeInabilityResponse" name="sendBackOfficeInabilityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get20Days">
+      <wsdl:input message="tns:get20Days" name="get20Days">
+    </wsdl:input>
+      <wsdl:output message="tns:get20DaysResponse" name="get20DaysResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reportLactancia">
+      <wsdl:input message="tns:reportLactancia" name="reportLactancia">
+    </wsdl:input>
+      <wsdl:output message="tns:reportLactanciaResponse" name="reportLactanciaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendInability">
+      <wsdl:input message="tns:sendInability" name="sendInability">
+    </wsdl:input>
+      <wsdl:output message="tns:sendInabilityResponse" name="sendInabilityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInsuredData">
+      <wsdl:input message="tns:GetInsuredData" name="GetInsuredData">
+    </wsdl:input>
+      <wsdl:output message="tns:GetInsuredDataResponse" name="GetInsuredDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReactivationInsured">
+      <wsdl:input message="tns:getReactivationInsured" name="getReactivationInsured">
+    </wsdl:input>
+      <wsdl:output message="tns:getReactivationInsuredResponse" name="getReactivationInsuredResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStatusInability">
+      <wsdl:input message="tns:updateStatusInability" name="updateStatusInability">
+    </wsdl:input>
+      <wsdl:output message="tns:updateStatusInabilityResponse" name="updateStatusInabilityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarLactancia">
+      <wsdl:input message="tns:insertarLactancia" name="insertarLactancia">
+    </wsdl:input>
+      <wsdl:output message="tns:insertarLactanciaResponse" name="insertarLactanciaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReactivationEmployer">
+      <wsdl:input message="tns:getReactivationEmployer" name="getReactivationEmployer">
+    </wsdl:input>
+      <wsdl:output message="tns:getReactivationEmployerResponse" name="getReactivationEmployerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendReimbursementPayment">
+      <wsdl:input message="tns:sendReimbursementPayment" name="sendReimbursementPayment">
+    </wsdl:input>
+      <wsdl:output message="tns:sendReimbursementPaymentResponse" name="sendReimbursementPaymentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OSPEVirtualSoapBinding" type="tns:OSPEVirtual">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetFamilyBond">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetFamilyBond">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetFamilyBondResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendReactivation">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendReactivation">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendReactivationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCITT">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetCITT">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCITTResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentRelationship">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmploymentRelationship">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmploymentRelationshipResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxpayer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetTaxpayer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetTaxpayerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportInability">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ReportInability">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ReportInabilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendBackOfficeInability">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendBackOfficeInability">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendBackOfficeInabilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get20Days">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="get20Days">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="get20DaysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reportLactancia">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="reportLactancia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="reportLactanciaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendInability">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendInability">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendInabilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInsuredData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetInsuredData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetInsuredDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReactivationInsured">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getReactivationInsured">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getReactivationInsuredResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStatusInability">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateStatusInability">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateStatusInabilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarLactancia">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="insertarLactancia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="insertarLactanciaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReactivationEmployer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getReactivationEmployer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getReactivationEmployerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendReimbursementPayment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendReimbursementPayment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendReimbursementPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OSPEVirtual">
+    <wsdl:port binding="tns:OSPEVirtualSoapBinding" name="OSPEVirtualPort">
+      <soap:address location="http://10.0.29.34:8080/WSOspeVirtual/OSPEVirtual"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
